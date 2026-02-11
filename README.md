@@ -12,7 +12,7 @@
   A **terminal** based static file analyser based on **C++** programming language through **command line operations**. Easy to use and **get insights and anaysis reports** for code files/directories.
 
 ## Documentation 📄
-  
+  - [Code Vault doc](https://tecnolgd.github.io/Code-Vault-doc/)
   
 ## Features ⚙️⚙️
 * Command line interface
