@@ -1,0 +1,5 @@
+stats
+history list
+ssh
+history list
+exit

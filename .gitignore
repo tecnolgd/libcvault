@@ -1,0 +1,8 @@
+# gitignore file
+
+*.exe
+*.tmp
+*.out
+*.log
+*.o
+*.vscode/
