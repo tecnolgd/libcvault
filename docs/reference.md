@@ -73,7 +73,7 @@ g++ main.cpp cmd.cpp -o cvault
     | exit / quit | Exit the application |
 
 ### Links & Support     
-- GitHub Repository: tecnolgd/Code-Vault
-- Report Issues: Open an Issue
+- GitHub Repository: - [tecnolgd/Code-Vault](https://github.com/tecnolgd/Code-Vault)
+- Report Issues: [Open an Issue](https://github.com/tecnolgd/Code-Vault/issues)
 
 © 2026 Code Vault Documentation
