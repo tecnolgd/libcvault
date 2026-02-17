@@ -53,7 +53,7 @@ git clone https://github.com/tecnolgd/cvault
     * ### Makefile (*Recommended*)
         1. Open terminal in the **cvault** folder. 
         2. Run ***`mingw32-make`***(for windows) / ***`make`***(for linux/ios).
-        3. An executabe file called ***`cvault.exe`*** / ***`cvalut.o`*** would be formed.
+        3. An executabe file called ***`cvault.exe`*** / ***`cvalut.o `*** would be formed.
         4. Run the command     
             * for **Interactive** mode:
               Use ***`cvault.exe`***(for windows cmd) or simply ***`cvault`***
@@ -61,7 +61,7 @@ git clone https://github.com/tecnolgd/cvault
             * for **Command-line** mode:
               Directly type the suitable commands on the terminal interface.
 
-            *(Note: Run ***`mingw32-make clean`*** or ***`make clean`*** to clear object files based on OS)*
+            *(Note: Run ***`mingw32-make clean`***(for Windows) or ***`make clean`***(for Linux/ios) to clear object files)*
         5. The application will start for user interaction.
         ---
 
