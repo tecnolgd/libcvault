@@ -3,8 +3,15 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++17
 
+# Detect OS and set appropriate remove command
+ifeq ($(OS),Windows_NT)
+    RM = del /Q
+else
+    RM = rm -f
+endif
+
 # Executable name
-TARGET = build/cvault
+TARGET = cvault
 
 # Source files
 SRCS = main.cpp cmd.cpp
@@ -22,4 +29,4 @@ $(TARGET): $(OBJS)
 
 # Clean build (clear .o files)
 clean:
-	del /Q *.o $(TARGET)
+	$(RM) *.o $(TARGET)
