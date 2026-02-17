@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17
 
 # Executable name
-TARGET = cvault.exe
+TARGET = cvault
 
 # Source files
 SRCS = main.cpp cmd.cpp
