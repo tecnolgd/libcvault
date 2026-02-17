@@ -5,4 +5,5 @@
 *.out
 *.log
 *.o
+*cvault
 *.vscode/
