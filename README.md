@@ -1,3 +1,6 @@
+# CODE VAULT-Code Analyzer
+![Code Vault](cv_readme.png)
+
 ![MIT License](https://img.shields.io/github/license/tecnolgd/Code-Vault?style=flat)
 ![Static Badge](https://img.shields.io/badge/tools-Open_Source-blue)
 ![Static Badge](https://img.shields.io/badge/interface-CLI-white)
@@ -6,10 +9,8 @@
 ![GitHub Discussions](https://img.shields.io/github/discussions/tecnolgd/Code-Vault)
 
 
-# CODE VAULT-Code Analyzer
-![Code Vault](cv_readme.png)
-
-  A **terminal** based static file analyser based on **C++** programming language through **command line operations**. Easy to use and **get insights and anaysis reports** for code files/directories.
+>A **terminal** based static file analyser based on **C++** programming language through **command line operations**.
+> Easy to use and **get insights and anaysis reports** for code files/directories.
 
 ## Documentation 📄
   - [Code Vault doc](docs/reference.md)
