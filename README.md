@@ -14,11 +14,11 @@
 
 ## Library Overview
 
-Code Vault is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program rather than operate as a standalone executable.
+**libcvault** is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
 
 ## API Summary
 
-- `populate_data()` — scan a directory and load regular file metadata
+- `populateData()` — scan a directory and load regular file metadata
 - `getTotalBytes()` — compute the total byte size of loaded files
 - `getFileCount()` — return the number of loaded files
 - `sortFileOnByte()` / `minMax()` — sort files by size and retrieve the largest size
@@ -46,7 +46,7 @@ g++ -std=c++17 my_app.cpp libcvault.o -o my_app
 #include <iostream>
 
 int main() {
-    if (populate_data(".") != 0) {
+    if (populateData(".") != 0) {
         std::cerr << "Directory scan failed\n";
         return 1;
     }
@@ -58,7 +58,3 @@ int main() {
     return 0;
 }
 ```
-
-## Notes
-- This repository exposes a library API, not a command-line application.
-- A C++17 compiler is required because the implementation depends on `<filesystem>`.
