@@ -12,15 +12,17 @@ void printBanner() { //tool logo
 }
 
 int main(int argc, char* argv[]){ //to get the number of words used in the command entered to interpret the literal command given by the user.
-    analyzer a; //object of class analyser
-    cliManager cli; //object of class cliManager
-    printBanner();
-    
-    if(argc<2){ //error check
-        std::cout<<"\nStarting interactive mode ...\n";
-        cli.runterminal(a); //passing address of class analyser object 'a' to function 'runterminal' 
-        return 0;
+
+    if (argc < 2) {
+        std::cerr << "Error: No command provided." << std::endl;
+        std::cerr << "Usage: ./codevault <command> [arguments]" << std::endl;
+        return 1; // Exit with error status code safely
     }
+
+    analyzer a; //object of class analyser
+     //object of class cliManager
+    
+    
     std::string command = argv[1];
         
 //Commands that take a directory/path as 2nd arg
@@ -28,34 +30,29 @@ int main(int argc, char* argv[]){ //to get the number of words used in the comma
         std::string path = (argc >= 3) ? argv[2] : ".";
         a.populate_data(path);
         std::cout<<"-----------------------\n";
-        std::cout << "Executable argv[0]: " << (argc>0 ? argv[0] : "<none>") << "\n"; //executable used e.g., analyzer <command> / here "analyzer"= execuatble
+        std::cout << "Executable argv[2]: " << (argc>2 ? argv[2] : "<none>") << "\n"; //executable used e.g., analyzer <command> / here "analyzer"= execuatble
         std::cout << "Current working directory: " << std::filesystem::current_path() << "\n";
 
         if (command == "report") {
-            a.reportData();
+            std::cout<<"Total Bytes: "<<a.reportData().name<<"\nTotal size: "<<a.reportData().byte_size;
         } else if (command == "fsortbyte") {
-            a.sortFileOnByte(0);
+            std::cout<<a.sortFileOnByte();
         } else if (command == "maxbyte") {
-            a.minMax();
+            std::cout<<a.minMax();
         }
         return 0;
     }
 // Commands that take a filename as 2nd arg (or prompt if missing)
     else if (command == "flcount") {
         if (argc >= 3) {
-            a.lineCount(argv[2]);
-        } else {
-            // prompt interactive-style if no filename provided
-            a.lineCount();
-        }
+            std::cout<<a.lineCount(argv[2]);
+        } 
         return 0;
     }
     else if (command == "fsearch") {
         a.populate_data("."); // load files from current dir
         if (argc >= 3) {
-            a.searchfile(argv[2]);
-        } else {
-            a.searchfile(); // interactive prompt
+            std::cout<<"Found: "<<argv[2]<<"\nSize: "<<a.searchfile(argv[2]);
         }
         return 0;
     }
