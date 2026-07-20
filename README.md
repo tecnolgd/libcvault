@@ -1,89 +1,63 @@
-# CODE VAULT-Code Analyzer
-![Code Vault](cv_readme.png)
+<h1 align = "center" style = "font-family: Roboto;">libcvault</h1>
 
-![MIT License](https://img.shields.io/github/license/tecnolgd/Code-Vault?style=flat)
-![Static Badge](https://img.shields.io/badge/tools-Open_Source-blue)
-![Static Badge](https://img.shields.io/badge/interface-CLI-white)
-![Static Badge](https://img.shields.io/badge/build-C++-teal)
-![Static Badge](https://img.shields.io/badge/release-beta-orange)
-![GitHub Discussions](https://img.shields.io/github/discussions/tecnolgd/Code-Vault)
+<div align = "center">
+
+<a href = "LICENSE.md"><img src = "https://img.shields.io/github/license/tecnolgd/libcvault?color=1a1a1a&style=flat-square" alt = "MIT License"></a>
+<a href="https://ftp.gnu.org/gnu/gcc/"><img src="https://img.shields.io/badge/g++-13.3.0%2B-1a1a1a?style=flat-square" alt="g++ 13.3.0+"></a>
+<a href="https://github.com/tecnolgd/libcvault/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/libcvault?include_prereleases&color=1a1a1a&style=flat-square?" alt="Release"></a>
+<a href = "#documentation"><img src = "https://img.shields.io/badge/Docs-Available-1a1a1a?style=flat-square" alt = "Docs: Available"></a>
+
+</div>
+
+> **libcvault** is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
 
 
->A **terminal** based static file analyser based on **C++** programming language through **command line operations**.
-> Easy to use and **get insights and anaysis reports** for code files/directories.
+## API Summary
 
-## Documentation 📄
-  - [Code Vault doc](docs/reference.md)
-  
-## Features ⚙️⚙️
-* Command line interface
-* Interactive mode
-* Easy build and usage
-* Smooth interface
-* Data Analysis
+- `populateData()` — scan a directory and load regular file metadata
+- `getTotalBytes()` — compute the total byte size of loaded files
+- `getFileCount()` — return the number of loaded files
+- `sortFileOnByte()` / `maxFile()` — sort files by size and retrieve the largest size
+- `sortFileOnName()` / `searchFile()` — sort files by name and search by filename
+- `lineCount()` — count lines in a text file
 
-## Tech Stack🚀
-* Language: **C++**
-* Paradigm: Object-oriented programming (**OOP**)
-* Complexity: **Basic** and **Intermediate** algorithms.
-* Core feature: File Handling
-  
-## How it works ❓️
-1. The application  works on two modes.
-2. Mode 1: **Interactive** mode     Mode 2: **Command-line** mode
-3. The application incorporates **O**bject-**O**riented **P**rogramming concepts for file analysis.
-4. The files are analyzed based on various file properties.
-5.  Suitable Algorithms are used based on the functions of the analyzer.    
+## Requirements
 
-## Future Upgrades 🛰️
-- [ ] New analysis features
-- [ ] Improved time complexity
-- [ ] User-friendly Commands
-- [ ] Improved documentation
+- C++17-compatible compiler
+- Standard library support for `<filesystem>`
 
-## How to run ?🔛
-1. Clone the repository :
+## Build Example
+
 ```bash
-git clone https://github.com/tecnolgd/cvault
+git clone https://github.com/tecnolgd/libcvault
+cd libcvault
+g++ -std=c++17 -c main.cpp -o libcvault.o
+g++ -std=c++17 my_app.cpp libcvault.o -o my_app
 ```
-2. Open the folder :
-```bash
- cd cvault
+
+## Example Usage
+
+```cpp
+#include "head.hpp"
+#include <iostream>
+
+int main() {
+    if (populateData(".") != 0) {
+        std::cerr << "Directory scan failed\n";
+        return 1;
+    }
+
+    std::cout << "Files found: " << getFileCount() << "\n";
+    std::cout << "Total bytes: " << getTotalBytes() << "\n";
+    std::cout << "Lines in head.hpp: " << lineCount("head.hpp") << "\n";
+
+    return 0;
+}
 ```
-2) Run with  
-    * ### Makefile (*Recommended*)
-        1. Open terminal in the **cvault** folder. 
-        2. Run ***`mingw32-make`***(for windows) / ***`make`***(for linux/ios).
-        3. An executabe file called ***`cvault.exe`*** / ***`cvalut.o `*** would be formed.
-        4. Run the command     
-            * for **Interactive** mode:
-              Use ***`cvault.exe`***(for windows cmd) or simply ***`cvault`***
-              Use ***`./cvault`***(for linux/ios)  in the terminal.
-            * for **Command-line** mode:
-              Directly type the suitable commands on the terminal interface.
+## Documentation
+- [Library reference](docs/reference.md)
 
-            *(Note: Run ***`mingw32-make clean`***(for Windows) or ***`make clean`***(for Linux/ios) to clear object files)*
-        5. The application will start for user interaction.
-        ---
+## Author & License
 
-    * ### g++(*Manual way / for beginners*)     
-        1. Open the terminal in the **cvault** folder.
-        2. Run
-        ```bash
-        g++ main.cpp cmd.cpp -o cvault
-        ```
-        3. An executable file called ***`cvault.exe`*** would be formed.
-        4. The command-line mode will be activated.
-        5. Start writing commands based on your need. *(Refer [**documentation**]( docs/reference.md) for in-depth details)*
-
-
-## Recent Add-ons ➕
-* [x] Documentation link
-* [x] Makefile    
-* [x] Discussions 
-* [ ] Demo
-* [ ] Improved Comments in source code
-
-
-Author    
-***tecnolgd***
+- **Author:** tecnolgd   
+- **License:** [MIT License](LICENSE.md)

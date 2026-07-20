@@ -1,79 +1,98 @@
-# Code Vault Documentation
+# Code Vault Library Reference
 
-**A CLI-based static file analyzer for codebase analysis.** Made from **pure C++** with object-oriented methodology. Easy to use and blazing fast response.
+## 1. Overview
 
----
+This project is implemented as a C++ library rather than a standalone command-line application. It provides reusable functions that can be linked into another program.
 
-## 1. Project Overview
-The project supports two main operational modes:
-* **Interactive Mode:** For continuous exploration and analysis.
-* **Command Line Mode (CLI):** For quick, one-off commands and scripting.
+The library includes:
 
----
+- directory traversal with file metadata collection
+- file count and total byte-size computation
+- ascending sort by file size
+- maximum file size lookup
+- filename-based search
+- line count for text files
 
-## 2. Installation & Setup
 
-### 2.1 Prerequisites
-* **Compiler:** GCC MinGW (x32/64) ver 14.2.0 (Recommended)
-* **Terminal:** CMD (Windows)
-* **Libraries:** No external dependencies required (clone and run the damn code 💀)
-* **Runtime Environment:** Windows 11 and above (Recommended)
+## 2. Build and Integration
 
-### 2.2 Compilation / Build
-Use the following commands to build the executable:
+### 2.1 Requirements
+- **Compiler:** A C++17-compatible compiler
+- **Standard library:** Support for `<filesystem>`
 
-**Makefile Build (Recommended):**
-```bash
-mingw32-make
+### 2.2 Example build
+
+- Compile the implementation file into an object file:
+    ```bash
+    g++ -std=c++17 -c main.cpp -o libcvault.o
+    ```
+
+- Then link it with your application source:
+    ```bash
+    g++ -std=c++17 my_app.cpp libcvault.o -o my_app
+    ```
+- To create a static library:
+    ```bash
+    ar rcs slibcvault.a libcvault.o
+    ```
+
+
+## 3. API Reference
+
+Include the header:
+```cpp
+#include "head.hpp"
 ```
-**Manual Build:**
-```bash
-g++ main.cpp cmd.cpp -o cvault
+
+- `int populateData(const char* path);`      
+Loads file names and sizes from the given directory into the library's internal list.
+
+    Return values:
+    - `0` - success
+    - `-1` - path does not exist
+    - `-2` - path is not a directory
+    - `-3` - filesystem error
+    - `-4` - unknown error
+
+- `long long int getTotalBytes();`     
+Returns the total byte size of all files loaded by the last successful `populateData` call.
+
+- `int getFileCount();`     
+Returns the number of files currently loaded.
+
+- `long long int sortFileOnByte(bool flag);`        
+Sorts loaded files in ascending order by size.
+If `flag` is `true`, returns the largest file size after sorting. If no files are loaded, returns `-1`.
+
+- `long long int maxFile();`      
+Returns the maximum loaded file size, or `-1` if no files are loaded.
+
+- `void sortFileOnName();`      
+Sorts the loaded file list alphabetically by file name.
+
+- `long long int searchFile(const char* fname);`       
+Searches the loaded file list by filename, returning the file size if found or `-3` if not found.
+
+- `long int lineCount(const char* filepath);`      
+Returns the number of lines in the specified file, or `-1` if the file cannot be opened.
+
+
+## 4. Example Usage
+
+```cpp
+#include "head.hpp"
+#include <iostream>
+
+int main() {
+    if (populateData(".") != 0) {
+        std::cerr << "Directory scan failed\n";
+        return 1;
+    }
+
+    std::cout << "Files found: " << getFileCount() << "\n";
+    std::cout << "Total bytes: " << getTotalBytes() << "\n";
+    std::cout << "Lines in head.hpp: " << lineCount("head.hpp") << "\n";
+
+    return 0;
+}
 ```
-**Running the Application:**
-- **Windows:** <code>cvault.exe</code> or simply <code>cvault</code>
-- **Linux/macOS:** <code>./cvault</code>
-
-## 3. Feature Reference (Command-line Mode)
-
-### 3.1 <code>cvault populate <path></code>
-    Used to scan a directory for files. If the path is not specified, it scans the current working directory.
-    ```bash
-    cvault populate .
-    ```
-### 3.2 <code>cvault report <path></code>
-    Displays all files in the scanned directory. Defaults to the current directory unless specified otherwise.
-    ```bash
-    cvault report .
-    ```
-### 3.3 <code>cvault fsearch <filename></code>
-    Searches for a specific file in the populated directory based on the name.
-    *Note:* This functionality does not work for executables or object files.
-    ```bash
-    cvault fsearch filename
-    ```
-### 3.4 <code> cvault fsortbyte <path></code>
-    Sorts files (including executables and object files) in increasing order based on the file size (number of bytes).
-    ```bash
-    cvault fsortbyte .
-    ```
-
-## 4.Interactive Mode Commands
-    When launched without arguments, Code Vault enters an interactive shell. Available commands include:
-
-    | Command | Description |
-    |---|---|
-    | populate | Populate / scan the directory |
-    | report | Display the scanned directory report |
-    | fsortbyte | Sort files based on file size |
-    | fsearch | Search for a specific file in the directory |
-    | fmaxbyte | Find the largest file in the directory |
-    | creds | Display credits and documentation links |
-    | help | Display commands and their meanings |
-    | exit / quit | Exit the application |
-
-### Links & Support     
-- GitHub Repository: - [tecnolgd/Code-Vault](https://github.com/tecnolgd/Code-Vault)
-- Report Issues: [Open an Issue](https://github.com/tecnolgd/Code-Vault/issues)
-
-© 2026 Code Vault Documentation

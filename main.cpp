@@ -7,7 +7,7 @@ std::vector<fileStructure> files;
 
 extern "C"{
 
-    int populate_data( const char* path) { 
+    int populateData( const char* path) { 
         files.clear(); //clear any garbage data
         std::filesystem::path p(path);
 
@@ -27,13 +27,14 @@ extern "C"{
                     files.push_back(file); //stack push operation
                 }
             }
-        } 
+        }
         catch (const std::filesystem::filesystem_error& e) { //error detection and display
-                return -3;
-            }
-        catch(...){ //for unknown errors
+            return -3;
+        }
+        catch(...) { //for unknown errors
             return -4;
         }
+        return 0;
     }
 
             
@@ -83,7 +84,7 @@ extern "C"{
     }
 
         
-    long long int minMax(){
+    long long int maxFile(){
 
         long long max_size = sortFileOnByte(true); 
 
@@ -100,6 +101,9 @@ extern "C"{
 
     //sort file for search functionality
      void sortFileOnName() {
+         if (files.size() < 2) {
+             return;
+         }
 
          for (size_t i = 0; i < files.size() - 1; i++) {
              for (size_t j = 0; j < files.size() - 1 - i; j++) {
@@ -115,39 +119,42 @@ extern "C"{
     }
 
     
-    long long int searchfile(const char* fname){ //to search the file vector based on the file name.
+    long long int searchFile(const char* fname){ //to search the file vector based on the file name.
 
         sortFileOnName(); //to sort the vector before binary search.
 
-        int key; //key - for search condition verification
+        int key = 0; //key - for search condition verification
         size_t size = files.size();
-        int low=0,high=size-1;
-        int mid;
-                
-        while(low<=high){   //binary search algorithm
-            mid = low + (high-low)/2;
+        if (size == 0) {
+            return -3;
+        }
 
-            if(files[mid].name == fname){
-                key=1;
+        int low = 0;
+        int high = static_cast<int>(size) - 1;
+        int mid = 0;
+                
+        while (low <= high) {   //binary search algorithm
+            mid = low + (high - low) / 2;
+
+            if (files[mid].name == fname) {
+                key = 1;
                 break;
             }
+            else if (files[mid].name < fname) {
+                low = mid + 1;
+            }
             else {
-                if(files[mid].name<fname){
-                    low=mid+1;
+                if (mid == 0) {
+                    break;
                 }
-                else{
-                    if(mid==0){
-                        break;
-                    }
-                    high = mid-1;
-                }
+                high = mid - 1;
             }
         }
-        if(key==1){
+        if (key == 1) {
             return files[mid].byte_size;
         }
-        else{
-            return -5;
+        else {
+            return -3;
         }
     }
             
