@@ -17,23 +17,23 @@ The library includes:
 ## 2. Build and Integration
 
 ### 2.1 Requirements
-* **Compiler:** A C++17-compatible compiler
-* **Standard library:** Support for `<filesystem>`
+- **Compiler:** A C++17-compatible compiler
+- **Standard library:** Support for `<filesystem>`
 
 ### 2.2 Example build
 
 - Compile the implementation file into an object file:
     ```bash
-    g++ -std=c++17 -c main.cpp -o cvault.o
+    g++ -std=c++17 -c main.cpp -o libcvault.o
     ```
 
 - Then link it with your application source:
     ```bash
-    g++ -std=c++17 my_app.cpp cvault.o -o my_app
+    g++ -std=c++17 my_app.cpp libcvault.o -o my_app
     ```
 - To create a static library:
     ```bash
-    ar rcs libcvault.a cvault.o
+    ar rcs slibcvault.a libcvault.o
     ```
 
 
@@ -96,7 +96,3 @@ int main() {
     return 0;
 }
 ```
-
-## 5. Notes
-* The repository exposes a library API, not a command-line tool.
-* A C++17 compiler is required because the implementation depends on `<filesystem>`.
