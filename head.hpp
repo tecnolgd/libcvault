@@ -26,37 +26,21 @@ class analyzer {
   public:
     // Core Data Management
     void populate_data(const std::string& path = ".");
-    void reportData();
+  fileStructure reportData();
     
     // Analysis and Manipulation
-    long long sortFileOnByte(bool x); // Note: Should probably return void, or the max byte size.
-    void minMax();
+    long long sortFileOnByte(); // Note: Should probably return void, or the max byte size.
+    long long int  minMax();
     void sortFileOnName();
-    void searchfile(const std::string& fname);
-    void searchfile(); // Interactive wrapper
+    long long int searchfile(const std::string& fname);
+    //void searchfile(); // Interactive wrapper
     
     // Utility
-    void lineCount(const std::string& filepath);
-    void lineCount(); // Interactive wrapper
+    long int lineCount(const std::string& filepath);
+    //void lineCount(); // Interactive wrapper
 };
 
 
-class cliManager {
-  public:
-    /**
-     * @brief Runs the continuous interactive loop.
-     * @param a Reference to the analyzer object to execute commands on.
-     */
-    void runterminal(analyzer &a);
-};
-
-// -----------------------------------------------------------------
-// 3. UTILITY FUNCTION DECLARATIONS
-// -----------------------------------------------------------------
-
-/**
- * @brief Prints the tool's main banner/header.
- */
 void printBanner();
 
 #endif // HEAD_HPP
