@@ -36,8 +36,8 @@ int main(int argc, char* argv[]){ //to get the number of words used in the comma
         if (command == "report") {
             std::cout<<"Total Bytes: "<<a.reportData().name<<"\nTotal size: "<<a.reportData().byte_size;
         } else if (command == "fsortbyte") {
-            std::cout<<a.sortFileOnByte();
-        } else if (command == "maxbyte") {
+            std::cout<<a.sortFileOnByte(false);
+        } else if (command == "fmaxbyte") {
             std::cout<<a.minMax();
         }
         return 0;
