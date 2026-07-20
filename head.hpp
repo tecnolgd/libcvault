@@ -18,7 +18,7 @@ struct fileStructure {
 extern "C"{
 
   // Core Data Management
-  int populate_data(const char* path = ".");
+  int populateData(const char* path = ".");
       
   // Analysis and Manipulation
   long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.

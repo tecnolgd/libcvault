@@ -7,7 +7,7 @@ std::vector<fileStructure> files;
 
 extern "C"{
 
-    int populate_data( const char* path) { 
+    int populateData( const char* path) { 
         files.clear(); //clear any garbage data
         std::filesystem::path p(path);
 
