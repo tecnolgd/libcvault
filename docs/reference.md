@@ -44,7 +44,7 @@ Include the header:
 #include "head.hpp"
 ```
 
-- `int populate_data(const char* path = ".");`      
+- `int populateData(const char* path = ".");`      
 Loads file names and sizes from the given directory into the library's internal list.
 
     Return values:
@@ -55,7 +55,7 @@ Loads file names and sizes from the given directory into the library's internal 
     - `-4` - unknown error
 
 - `long long int getTotalBytes();`     
-Returns the total byte size of all files loaded by the last successful `populate_data` call.
+Returns the total byte size of all files loaded by the last successful `populateData` call.
 
 - `int getFileCount();`     
 Returns the number of files currently loaded.
@@ -84,7 +84,7 @@ Returns the number of lines in the specified file, or `-1` if the file cannot be
 #include <iostream>
 
 int main() {
-    if (populate_data(".") != 0) {
+    if (populateData(".") != 0) {
         std::cerr << "Directory scan failed\n";
         return 1;
     }
