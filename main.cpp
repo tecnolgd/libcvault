@@ -3,9 +3,11 @@
 #include "head.hpp"
  
 
+std::vector<fileStructure> files;
+
 extern "C"{
 
-    int analyzer::populate_data( const std::string& path) { 
+    int populate_data( const std::string& path) { 
         files.clear(); //clear any garbage data
         std::filesystem::path p(path);
 
@@ -35,7 +37,7 @@ extern "C"{
     }
 
             
-    fileStructure analyzer::reportData() { //report generation function
+    fileStructure reportData() { //report generation function
 
         if (files.empty()) { //checks if the file is empty or not
             std::cout << "Vector is empty. Run 'populate' first.\n";
@@ -57,7 +59,7 @@ extern "C"{
     }
 
 
-    long long int analyzer::sortFileOnByte(bool flag){ //bubble sort algorithm
+    long long int sortFileOnByte(bool flag){ //bubble sort algorithm
             
         if(files.empty()){
             return -1;
@@ -87,7 +89,7 @@ extern "C"{
     }
 
         
-    long long int analyzer::minMax(){
+    long long int minMax(){
 
         long long max_size = sortFileOnByte(true); 
 
@@ -103,7 +105,7 @@ extern "C"{
 
 
     //sort file for search functionality
-     void analyzer::sortFileOnName() {
+     void sortFileOnName() {
 
          for (size_t i = 0; i < files.size() - 1; i++) {
              for (size_t j = 0; j < files.size() - 1 - i; j++) {
@@ -119,7 +121,7 @@ extern "C"{
     }
 
     
-    long long int analyzer::searchfile(const std::string& fname){ //to search the file vector based on the file name.
+    long long int searchfile(const std::string& fname){ //to search the file vector based on the file name.
 
         sortFileOnName(); //to sort the vector before binary search.
 
@@ -156,7 +158,7 @@ extern "C"{
     }
             
         
-    long int analyzer::lineCount(const std::string& filepath){   //function to count lines of code in a desired file (any file in the system)
+    long int lineCount(const std::string& filepath){   //function to count lines of code in a desired file (any file in the system)
 
         std::ifstream file(filepath); //open file for reading
 
