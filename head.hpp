@@ -15,23 +15,19 @@ struct fileStructure {
   long long byte_size;
 };
 
-class analyzer {
-  private:
-    std::vector<fileStructure> files;
+extern "C"{
 
-  public:
-    // Core Data Management
-    int populate_data(const std::string& path = ".");
-    fileStructure reportData();
+  // Core Data Management
+  int populate_data(const std::string& path = ".");
+  fileStructure reportData();
+      
+  // Analysis and Manipulation
+  long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
+  long long int  minMax();
+  void sortFileOnName(); //for file search operation
+  long long int searchfile(const std::string& fname);
     
-    // Analysis and Manipulation
-    long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
-    long long int  minMax();
-    void sortFileOnName(); //for file search operation
-    long long int searchfile(const std::string& fname);
-   
-    // Utility
-    long int lineCount(const std::string& filepath);
-};
-
+  // Utility
+  long int lineCount(const std::string& filepath);
+}
 #endif
