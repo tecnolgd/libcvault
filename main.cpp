@@ -84,7 +84,7 @@ extern "C"{
     }
 
         
-    long long int minMax(){
+    long long int maxFile(){
 
         long long max_size = sortFileOnByte(true); 
 
@@ -119,14 +119,14 @@ extern "C"{
     }
 
     
-    long long int searchfile(const char* fname){ //to search the file vector based on the file name.
+    long long int searchFile(const char* fname){ //to search the file vector based on the file name.
 
         sortFileOnName(); //to sort the vector before binary search.
 
         int key = 0; //key - for search condition verification
         size_t size = files.size();
         if (size == 0) {
-            return -5;
+            return -3;
         }
 
         int low = 0;
@@ -154,7 +154,7 @@ extern "C"{
             return files[mid].byte_size;
         }
         else {
-            return -5;
+            return -3;
         }
     }
             

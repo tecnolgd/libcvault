@@ -44,7 +44,7 @@ Include the header:
 #include "head.hpp"
 ```
 
-- `int populateData(const char* path = ".");`      
+- `int populateData(const char* path);`      
 Loads file names and sizes from the given directory into the library's internal list.
 
     Return values:
@@ -64,14 +64,14 @@ Returns the number of files currently loaded.
 Sorts loaded files in ascending order by size.
 If `flag` is `true`, returns the largest file size after sorting. If no files are loaded, returns `-1`.
 
-- `long long int minMax();`      
+- `long long int maxFile();`      
 Returns the maximum loaded file size, or `-1` if no files are loaded.
 
 - `void sortFileOnName();`      
 Sorts the loaded file list alphabetically by file name.
 
-- `long long int searchfile(const char* fname);`       
-Searches the loaded file list by filename, returning the file size if found or `-5` if not found.
+- `long long int searchFile(const char* fname);`       
+Searches the loaded file list by filename, returning the file size if found or `-3` if not found.
 
 - `long int lineCount(const char* filepath);`      
 Returns the number of lines in the specified file, or `-1` if the file cannot be opened.

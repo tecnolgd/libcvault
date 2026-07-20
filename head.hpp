@@ -22,7 +22,7 @@ extern "C"{
       
   // Analysis and Manipulation
   long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
-  long long int  minMax();
+  long long int  maxFile();
   void sortFileOnName(); //for file search operation
   long long int searchfile(const char* fname);
     
