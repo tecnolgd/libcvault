@@ -29,6 +29,6 @@ extern "C"{
   // Utility
   long int lineCount(const char* filepath);
   long long int getTotalBytes();
-  int getFileCount()
+  int getFileCount();
 }
 #endif
