@@ -19,7 +19,6 @@ extern "C"{
 
   // Core Data Management
   int populate_data(const char* path = ".");
-  fileStructure reportData();
       
   // Analysis and Manipulation
   long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
@@ -29,5 +28,7 @@ extern "C"{
     
   // Utility
   long int lineCount(const char* filepath);
+  long long int getTotalBytes();
+  int getFileCount()
 }
 #endif

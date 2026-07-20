@@ -37,25 +37,19 @@ extern "C"{
     }
 
             
-    fileStructure reportData() { //report generation function
-
-        if (files.empty()) { //checks if the file is empty or not
-            std::cout << "Vector is empty. Run 'populate' first.\n";
-            return {};
-        }                                                   
-        long long totalSizeBytes = 0;
-            
-         //Iterating over the entire vector (array).
-        for (size_t i=0; i<files.size();i++) { 
-            totalSizeBytes += files[i].byte_size; //total bytes size
-        }
-
-        fileStructure result;
-        std::string total_bytes = std::to_string(totalSizeBytes);
-        result.name = total_bytes;
-        result.byte_size = files.size();
+    long long int getTotalBytes() {
+        if (files.empty()) return 0;
         
-        return result; //returns struct of members name and byte_size
+        long long totalSizeBytes = 0;
+        for (const auto& file : files) {
+            totalSizeBytes += file.byte_size;
+        }
+        return totalSizeBytes;
+    }
+
+ 
+    int getFileCount() {
+        return static_cast<int>(files.size());
     }
 
 
