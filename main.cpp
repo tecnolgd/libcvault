@@ -53,7 +53,7 @@ fileStructure analyzer::reportData() { //report generation function
         
         return result;
     }
-    long long analyzer::sortFileOnByte(){ //bubble sort algorithm
+    long long int analyzer::sortFileOnByte(bool flag){ //bubble sort algorithm
         
         if(files.empty()){
             return 0;
@@ -75,14 +75,16 @@ fileStructure analyzer::reportData() { //report generation function
                 }
             }
         }
-
-        size_t size= files.size();
-        return files[size-1].byte_size;//return the max bytes since the sort is ascending order
+        if(flag){
+            size_t size= files.size();
+            return files[size-1].byte_size;//return the max bytes since the sort is ascending order
+        }
+        return 0;
     }
     
 long long int analyzer::minMax(){
     // sortFileOnByte(false) sorts and returns the largest byte size
-    long long max_size = sortFileOnByte(); 
+    long long max_size = sortFileOnByte(true); 
     if (max_size > 0) {
         
         return max_size;
