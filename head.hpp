@@ -29,7 +29,7 @@ class analyzer {
   fileStructure reportData();
     
     // Analysis and Manipulation
-    long long sortFileOnByte(); // Note: Should probably return void, or the max byte size.
+    long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
     long long int  minMax();
     void sortFileOnName();
     long long int searchfile(const std::string& fname);
