@@ -1,20 +1,16 @@
-<h1 align = "center">libcvault</h1>
+<h1 align = "center" style = "font-family: Roboto;">libcvault</h1>
 
-![Code Vault](cv_logo.png)
+<div align = "center">
 
-![MIT License](https://img.shields.io/github/license/tecnolgd/Code-Vault?style=flat)
-![Static Badge](https://img.shields.io/badge/library-C%2B%2B-lightgrey)
-![Static Badge](https://img.shields.io/badge/release-beta-orange)
+<a href = "LICENSE.md"><img src = "https://img.shields.io/github/license/tecnolgd/libcvault?color=1a1a1a&style=flat-square" alt = "MIT License"></a>
+<a href="https://ftp.gnu.org/gnu/gcc/"><img src="https://img.shields.io/badge/g++-13.3.0%2B-1a1a1a?style=flat-square" alt="g++ 13.3.0+"></a>
+<a href="https://github.com/tecnolgd/libcvault/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/libcvault?include_prereleases&color=1a1a1a&style=flat-square?" alt="Release"></a>
+<a href = "#documentation"><img src = "https://img.shields.io/badge/Docs-Available-1a1a1a?style=flat-square" alt = "Docs: Available"></a>
 
-> A C++ library for static file metadata analysis. This repository exposes reusable APIs for directory scanning, file size inspection, filename search, and line counting.
+</div>
 
-## Documentation
+> **libcvault** is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
 
-- [Library reference](docs/reference.md)
-
-## Library Overview
-
-**libcvault** is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
 
 ## API Summary
 
@@ -58,3 +54,10 @@ int main() {
     return 0;
 }
 ```
+## Documentation
+- [Library reference](docs/reference.md)
+
+## Author & License
+
+- **Author:** tecnolgd   
+- **License:** [MIT License](LICENSE.md)
