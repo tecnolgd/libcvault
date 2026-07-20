@@ -24,7 +24,7 @@ extern "C"{
   long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
   long long int  maxFile();
   void sortFileOnName(); //for file search operation
-  long long int searchfile(const char* fname);
+  long long int searchFile(const char* fname);
     
   // Utility
   long int lineCount(const char* filepath);
