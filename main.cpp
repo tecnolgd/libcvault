@@ -7,7 +7,7 @@ std::vector<fileStructure> files;
 
 extern "C"{
 
-    int populate_data( const std::string& path) { 
+    int populate_data( const char* path) { 
         files.clear(); //clear any garbage data
         std::filesystem::path p(path);
 
@@ -121,7 +121,7 @@ extern "C"{
     }
 
     
-    long long int searchfile(const std::string& fname){ //to search the file vector based on the file name.
+    long long int searchfile(const char* fname){ //to search the file vector based on the file name.
 
         sortFileOnName(); //to sort the vector before binary search.
 
@@ -158,7 +158,7 @@ extern "C"{
     }
             
         
-    long int lineCount(const std::string& filepath){   //function to count lines of code in a desired file (any file in the system)
+    long int lineCount(const char* filepath){   //function to count lines of code in a desired file (any file in the system)
 
         std::ifstream file(filepath); //open file for reading
 

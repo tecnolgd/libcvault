@@ -18,16 +18,16 @@ struct fileStructure {
 extern "C"{
 
   // Core Data Management
-  int populate_data(const std::string& path = ".");
+  int populate_data(const char* path = ".");
   fileStructure reportData();
       
   // Analysis and Manipulation
   long long int sortFileOnByte(bool flag); // Note: Should probably return void, or the max byte size.
   long long int  minMax();
   void sortFileOnName(); //for file search operation
-  long long int searchfile(const std::string& fname);
+  long long int searchfile(const char* fname);
     
   // Utility
-  long int lineCount(const std::string& filepath);
+  long int lineCount(const char* filepath);
 }
 #endif
