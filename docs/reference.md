@@ -1,4 +1,4 @@
-# Code Vault Library Reference
+# libcvault Library Reference
 
 ## 1. Overview
 
