@@ -33,7 +33,7 @@ The library includes:
     ```
 - To create a static library:
     ```bash
-    ar rcs slibcvault.a libcvault.o
+    ar rcs libcvault.a libcvault.o
     ```
 
 
