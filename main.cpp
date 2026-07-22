@@ -161,7 +161,7 @@ extern "C"{
         
     long int lineCount(const char* filepath){   //function to count lines of code in a desired file (any file in the system)
 
-        std::ifstream file{std::string(filepath)}; //open file for reading
+        std::ifstream file(filepath); //open file for reading
 
         if(! file.is_open()){ //to check whether the file exists
             return -1;
