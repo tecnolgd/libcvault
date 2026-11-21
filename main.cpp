@@ -15,6 +15,7 @@ extern "C"{
 
     int populateData( const char* path) { 
         files.clear(); //clear any garbage data
+        fileMap.clear(); //clear stale search index
         std::filesystem::path p(path);
 
         try {                                   // check for probable errors
