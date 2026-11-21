@@ -10,7 +10,7 @@ To set up your local development environment and build the project, please follo
 
 > [!NOTE]     
 > - Ensure you have a C++17 compiler, `cmake`, and a build tool such as `make` installed.*
-> - [GoogleTest](https://github.com/google/googletest) is used for the automated test suite. The CMake configuration ([CMakeLists.txt](/home/chief/projects/libcvault/CMakeLists.txt)) first looks for a system-installed GoogleTest; if none is found, it automatically fetches and builds GoogleTest (v1.14.0) in the local build directory via CMake `FetchContent` on the first configure, so a system-wide GoogleTest installation is not required.
+> - [GoogleTest](https://github.com/google/googletest) is used for the automated test suite. The CMake configuration ([CMakeLists.txt](CMakeLists.txt)) first looks for a system-installed GoogleTest; if none is found, it automatically fetches and builds GoogleTest (v1.14.0) in the local build directory via CMake `FetchContent` on the first configure, so a system-wide GoogleTest installation is not required.
 
 ### Development Workflow
 
@@ -22,7 +22,7 @@ To set up your local development environment and build the project, please follo
 
 ### Building and Testing
 
-The project uses a single root [CMake](https://cmake.org/) configuration and a root [Makefile](/home/chief/projects/libcvault/Makefile) for building the library and running the [GoogleTest](https://github.com/google/googletest)-based test suite in [`tests/`](tests/).
+The project uses a single root [CMake](https://cmake.org/) configuration and a root [Makefile](Makefile) for building the library and running the [GoogleTest](https://github.com/google/googletest)-based test suite in [`tests/`](tests/).
 
 #### Structure
 
