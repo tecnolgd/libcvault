@@ -5,9 +5,11 @@
 *.out
 *.log
 *.o
+*.gch
 *cvault
 *.vscode/
 *test_beta/
+
 # Build/test artifacts
 build/
 tests/run_tests
@@ -18,6 +20,7 @@ cmake_install.cmake
 CTestTestfile.cmake
 Testing/
 compile_commands.json
+
 # CMake-generated Makefiles in build trees
 build/**/Makefile
 tests/build/**/Makefile
