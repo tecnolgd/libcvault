@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(cvault STATIC main.cpp)
-target_include_directories(cvault PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(libcvault STATIC main.cpp)
+target_include_directories(libcvault PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(CTest)
 
@@ -30,13 +30,13 @@ if(BUILD_TESTING)
 
     include(GoogleTest)
 
-    file(GLOB CVAULT_TEST_SOURCES CONFIGURE_DEPENDS tests/test_*.cpp)
-    add_executable(cvault_tests ${CVAULT_TEST_SOURCES})
-    target_link_libraries(cvault_tests PRIVATE cvault GTest::gtest GTest::gtest_main)
-    target_include_directories(cvault_tests PRIVATE
+    file(GLOB LIBCVAULT_TEST_SOURCES CONFIGURE_DEPENDS tests/test_*.cpp)
+    add_executable(libcvault_tests ${LIBCVAULT_TEST_SOURCES})
+    target_link_libraries(libcvault_tests PRIVATE libcvault GTest::gtest GTest::gtest_main)
+    target_include_directories(libcvault_tests PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/tests
     )
 
-    gtest_discover_tests(cvault_tests)
+    gtest_discover_tests(libcvault_tests)
 endif()
