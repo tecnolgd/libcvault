@@ -8,3 +8,16 @@
 *cvault
 *.vscode/
 *test_beta/
+# Build/test artifacts
+build/
+tests/run_tests
+tests/*.o
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+# CMake-generated Makefiles in build trees
+build/**/Makefile
+tests/build/**/Makefile
