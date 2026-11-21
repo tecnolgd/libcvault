@@ -57,17 +57,16 @@ git clone https://github.com/tecnolgd/libcvault
 cd libcvault
 ```
 
-- **Manual Build**
+- **Manual Build**     
 
-Create the object file(`libcvault.o`)
-```bash
-g++ -std=c++17 -c main.cpp -o libcvault.o
-```
-
-Link with the source code(`my_app.cpp`)
-```bash
-g++ -std=c++17 my_app.cpp libcvault.o -o my_app
-```
+    - Create the object file(`libcvault.o`)
+        ```bash
+        g++ -std=c++17 -c main.cpp -o libcvault.o
+        ```
+    - Link with the source code(`my_app.cpp`)
+        ```bash
+        g++ -std=c++17 my_app.cpp libcvault.o -o my_app
+        ```
 
 ### Running the application
 
@@ -105,7 +104,7 @@ Lines in head.hpp: 38
 ```
 
 ## Documentation
-- [Library reference](docs/reference.md)
+- [Library Reference](docs/reference.md)
 
 ## Support This Project
 
