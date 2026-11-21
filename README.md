@@ -5,12 +5,25 @@
 <a href = "LICENSE.md"><img src = "https://img.shields.io/github/license/tecnolgd/libcvault?color=1a1a1a&style=flat-square" alt = "MIT License"></a>
 <a href="https://ftp.gnu.org/gnu/gcc/"><img src="https://img.shields.io/badge/g++-13.3.0%2B-1a1a1a?style=flat-square" alt="g++ 13.3.0+"></a>
 <a href="https://github.com/tecnolgd/libcvault/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/libcvault?include_prereleases&color=1a1a1a&style=flat-square?" alt="Release"></a>
-<a href = "#documentation"><img src = "https://img.shields.io/badge/Docs-Available-1a1a1a?style=flat-square" alt = "Docs: Available"></a>
 
 </div>
 
-> **libcvault** is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
+<p align = "center">libcvault is a C++ library for static file metadata analysis. It is intended to provide reusable functions for another C++ program(as of now) rather than operate as a standalone executable.
+</p>
+<hr>
 
+
+<div align = "center">
+
+  <a href = "#quick-run">Quick Run</a> •
+  <a href = "./docs/reference.md#libcvault-library-reference"> Library Reference</a> •
+  <a href = "#support-this-project"> Support this project</a>
+  
+</div>
+
+
+> [!WARNING]
+> libcvault is currently undergoing active refactor and API updates. Please make sure to use the v2.1.0-beta version for required applications.
 
 ## API Summary
 
@@ -27,21 +40,40 @@
 - `getFiles()` - returns a raw pointer to the internal memory buffer of the file list
 
 
-## Requirements
+## Quick Run
+
+### Prerequisites
 
 - C++17-compatible compiler
 - Standard library support for `<filesystem>`
 
 
-## Build Example
+### Build Instructions
 
 ```bash
 git clone https://github.com/tecnolgd/libcvault
+```
+```bash
 cd libcvault
-g++ -std=c++17 -c main.cpp -o libcvault.o
-g++ -std=c++17 my_app.cpp libcvault.o -o my_app
 ```
 
+- **Manual Build**     
+
+    - Create the object file(`libcvault.o`)
+        ```bash
+        g++ -std=c++17 -c main.cpp -o libcvault.o
+        ```
+    - Link with the source code(`my_app.cpp`)
+        ```bash
+        g++ -std=c++17 my_app.cpp libcvault.o -o my_app
+        ```
+
+### Running the application
+
+After building, run the application
+```bash
+./my_app
+```
 
 ## Example Usage
 
@@ -72,10 +104,15 @@ Lines in head.hpp: 38
 ```
 
 ## Documentation
-- [Library reference](docs/reference.md)
+- [Library Reference](docs/reference.md)
 
+## Support This Project
 
-## Author & License
+If libcvault has positively impacted your workflow, consider:
+- Starring this repository
+- Forking the project
+- Sharing feedback and suggestions
+- [Contributing](CONTRIBUTING.md) to the codebase
 
-- **Author:** tecnolgd   
-- **License:** [MIT License](LICENSE.md)
+## License
+MIT
