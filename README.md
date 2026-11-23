@@ -5,6 +5,8 @@
 <a href = "LICENSE.md"><img src = "https://img.shields.io/github/license/tecnolgd/libcvault?color=1a1a1a&style=flat-square" alt = "MIT License"></a>
 <a href="https://ftp.gnu.org/gnu/gcc/"><img src="https://img.shields.io/badge/g++-13.3.0%2B-1a1a1a?style=flat-square" alt="g++ 13.3.0+"></a>
 <a href="https://github.com/tecnolgd/libcvault/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/libcvault?include_prereleases&color=1a1a1a&style=flat-square?" alt="Release"></a>
+<a href = "https://github.com/tecnolgd/libcvault/actions/workflows/libcvault_ci.yml"><img src = "https://img.shields.io/github/actions/workflow/status/tecnolgd/libcvault/libcvault_ci.yml?branch=main&color=1a1a1a&style=flat-square" alt="Build">
+  </a>
 
 </div>
 
